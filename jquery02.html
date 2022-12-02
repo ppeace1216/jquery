@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 선택자</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+    .high {font-weight: 900;}
+    </style>
+</head>
+<body>
+    <div id="con">
+        <ul class="lst">
+            <li><a href="a.html">텍스트1</a></li>
+            <li><a href="b">텍스트2</a></li>
+            <li><a>텍스트3</a></li>
+        </ul>
+    </div>
+    <br>
+    <button type="button" id="btn1">추가!</button>    
+    <script>
+    $(function(){
+        $("*").css("margin","0px").css("padding","0px");
+        $("a").addClass("high").css("text-decoration","none");
+        $("a[href]").css("background-color","skyblue");
+        $("a[href*='b']").css("color","deeppink");
+        $("#con").css("magin-top","50px").css("padding","100px");
+        $(".lst").css("list-style","none");
+        $("#btn1").click(function(){
+            var cnt = $(".lst li").length + 1;
+            $(".lst").append("<li><a href=''>텍스트"+cnt+"</a></li>")
+        });
+    }); 
+    </script>
+</body>
+</html>
