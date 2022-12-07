@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 22</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <h1>기본 메소드 - text(), html()</h1>
+        <article class="data">
+            <p><b>You got me</b> looking for <span id="tag">attention</span></p>
+            <p>가끔은 정말<span id="text"> 헷갈리지만</span> 분명한 건</p>
+            <p>Got me looking for <button name="oktbtn">attention</button></p>
+            <div id="console"></div>
+        </article>
+    </section>
+    <script>
+    $(function(){
+        var sw = true;
+        //p 요소를 클릭하면, 클릭된 요소의 태그를 포함하여 아이디가 console인 곳에 텍스트 형태로 출력
+        $("p").click(function(){
+            $("#console").text($(this).html());
+        });
+        //p 요소를 클릭하면, 클릭된 요소의 태그를 포함하여 아이디가 console인 곳에 html 형태로 출력
+        $("p").click(function(){
+            $("#console").html($(this).html());
+        });
+        //p 요소를 클릭하면, 클릭된 요소의 텍스트를 아이디가 console인 곳에 텍스트 형태로 출력
+        $("p").click(function(){
+            $("#console").text($(this).text());
+        });
+    });
+    </script>
+</body>
+</html>

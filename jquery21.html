@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 21</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .abor {border: 500px solid rgb(213, 224, 255); transition-duration: 1s;}
+    .bbor {border: 500px solid rgb(255, 252, 213); transition-duration: 1s;}
+    .cbor {border: 500px solid rgb(255, 213, 250); transition-duration: 1s;}
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>기본 메소드 - hasClass()</h1>
+        <article class="data">
+            <button>선색 변경</button><br>
+            <img src="cat1.jpg" title="냐옹이" alt="cat" class="img1 abor">
+            <img src="cat2.jpg" title="냐옹이" alt="cat" class="img1 bbor">
+            <img src="cat1.jpg" title="냐옹이" alt="cat" class="img1 cbor">
+        </article>
+    </section>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $(".img1").each(function(){
+                    if($(this).hasClass("abor")){
+                        $(this).removeClass("abor").addClass("bbor");
+                    } else if($(this).hasClass("bbor")){
+                        $(this).removeClass("bbor").addClass("cbor");
+                    } else {
+                        $(this).removeClass("cbor").addClass("abor");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

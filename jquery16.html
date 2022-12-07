@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 16</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section="container">
+    <h1>폼 검증</h1>
+        <article id="joinFrm">
+            <div>
+                <label for="userId" class="item"> 아이디 </label>
+                <input id="userId" type="text">
+            </div>
+            <div>
+                <label for="userName" class="item"> 이름 </label>
+                <input id="userName" type="text" placeholder="이름을 입력">
+            </div>
+            <div>
+                <label for="pwd" class="item"> 암호 </label>
+                <input id="pwd" type="password">
+            </div>
+            <div>
+                <label for="pwdConfirm" class="item"> 암호확인 </label>
+                <input id="pwdConfirm" type="password">
+            </div>
+            <input type="button" id="regBtn" value="회원가입">
+        </article>
+    </section>
+    <script>
+    $(function(){
+        var pass="no";
+        var source;
+        $(":button").click(function(){  //버튼을 클릭했을때
+            $(":text, :password").each(function(){
+                if($(this).val()==""){
+                    alert("데이터를 입력하지 않으셨습니다.");
+                    return false;             
+                } else {
+                    pass="yes";
+                }
+            });
+        });
+        if(pass=="yes"){
+            source={"id":$("#userId").val(), "pw":$("#pwd").val(), "name":$("#userName").val()};
+            $.ajax({
+                url:"ajaxJoin.do?member="+source,
+                type:"get",     //form이 아니라 post말고 get으로 보낸다
+                dataType:"json",
+                success:function(res){
+                    $("#msg").text(res);
+                },
+                error:function(res, status, err){
+                    alert(res+"가 "+err+"로 인해 정상적으로 처리되지 못했습니다.");
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

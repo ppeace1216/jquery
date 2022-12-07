@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 18</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <h1>기본 메소드 - removeAttr()</h1>
+        <article class="data">
+            <div class="imgFrame">
+                <button>어트리뷰트 값 제거하기</button>
+                <img src="cat1.jpg" title="냐옹이" alt="cat">
+            </div>
+            <div class="imgFrame">
+                <button>어트리뷰트 값 제거하기</button>
+                <img src="cat2.jpg" title="냐옹이2" alt="cat">
+            </div>
+        </article>
+    </section>
+    <script>
+    $(function(){
+        //버튼을 클리하면 그 버튼의 다음 요소인 img 요소의 src 속성을 제거
+        $("button").click(function(){
+            $(this).next().removeAttr("src");
+        });
+    });
+    </script>
+</body>
+</html>

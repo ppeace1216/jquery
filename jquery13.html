@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 13</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <h1>체크박스(:checkbox), 체크된 상태(:checked), 체크되지 않은 상태(not(:checked))</h1>
+        <div>
+            <input type="checkbox" name="fruit" /> <span>사과</span>
+        </div>
+        <div>
+            <input type="checkbox" name="fruit" /> <span>바나나</span>
+        </div>
+        <div>
+            <input type="checkbox" name="fruit" checked="checked" /> <span>오렌지</span>
+        </div>
+    </section>
+    <script>
+    $(function(){
+        //체크박스의 다음 요소 span에 배경색을 하늘색으로 설정
+        //체크박스가 체크되면, 그 다음 요소 span의 글자색을 노랑으로 변경
+        //체크박스가 체크 해제되면, 그 다음 요소 span의 글자색을 흰색을 변경
+        $("input:checkbox + span").css("backgroundColor","skyblue");
+        $("input:checkbox:checked + span").css("color","yellow");
+        $("input:checkbox:not(:checked) + span").css("color","white");
+
+        $("input:checkbox").click(function(){
+            $("input:checkbox:checked + span").css("color","yellow");
+            $("input:checkbox:not(:checked) + span").css("color","white");
+        });
+        //이벤트 트리거 : 이벤트를 자동으로 강제 발생
+        //$(선택자).이벤트메서드(function(){이벤트내용;}).이벤트메서드()
+    });
+    </script>
+</body>
+</html>

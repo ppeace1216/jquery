@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery05</title>
+    <script src="jquery-1.12.4.js"></script>
+</head>
+<body>
+    <section class="container">
+        <h1>후손과 자식 요소의 접근 제어</h1>
+        <p>
+            <em>one</em>  <em>two</em> <span><em>three</em></span>
+        </p>
+        <div>
+            <em>four</em>  <em>five</em> <span><em>six</em></span>
+        </div>
+    </section>
+    <div>
+        <span> ancestor descendant로 검색된 엘리먼트 : </span><span class="result1"></span>
+    </div>
+    <div>
+        <span> parent child로 검색된 엘리먼트 : </span><span class="result2"></span>
+    </div>
+    <script>
+    $(function(){
+        //클래스가 result1인 곳에 p의 후손 요소인 em의 text 출력
+        var res1="";
+        $("p em").each(function(){
+            res1 += $(this).text();         //getter
+        });
+        $(".result1").text(res1);           //setter
+        //클래스가 result2인 곳에 div의 자식 요소인 em의 text 출력
+        var res2="";
+        $("div > em").each(function(){      //반복  $.each("div > em", function())
+            res2 += $(this).text();         //res2에 반복 누적  / text를 html로 바꾸면 태그까지 가지고 온다.
+        });
+        $(".result2").text(res2);           //이거도 text를 html로 가져오면 태그로 인식, text로 가져오면 가져온 태그까지도 그냥 text로만 인식한다
+    });
+    </script>
+</body>
+</html>
