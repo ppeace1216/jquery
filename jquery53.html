@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 53 - 폼 관련 이벤트 메소드</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; } 
+    img { width: 500px; height:auto; border-width:10px; border-style:solid; 
+    border-color:black; transition-duration:0.6s; }
+    </style>
+    <script>
+    $(document).ready(function(){
+        var wd0 = screen.width;
+        $(window).resize(function(){
+            var wd = $(window).width();
+            if(wd>=960 || wd==wd0){
+                $(".title").css("color","blue").css("font-size","48px");
+                $(".comment").css("color", "blue").css("font-size","20px");
+                $("img").attr("src","winter1.jpg").width(500);
+            }else if ( wd>=768) {
+                $(".title").css("color","green").css("font-size","36px");
+                $(".comment").css("color", "green").css("font-size","18px");
+                $("img").attr("src","winter2.jpg").width(300);
+            }else {
+                $(".title").css("color","red").css("font-size","24px");
+                $(".comment").css("color", "red").css("font-size","14px");
+                $("img").attr("src","winter3.jpg").width(100);
+            }
+        })
+    });    
+    </script>
+</head>
+<body>
+    <section class="comment">
+        <h1>폼 관련 이벤트 메소드 - focus(), blur()</h1>
+        <article class="data">
+            <h2 class="title">하잉</h2>
+            <p class="comment">하이하잉</p>
+            <img alt="겨울">
+        </article>
+    </section><br><hr><br>
+</body>
+</html>

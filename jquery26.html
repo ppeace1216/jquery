@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 26</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .data {clear: both;}
+    div {clear: both; width: 60px; height: 60px;}
+    </style>
+    <script>
+    //버튼을 누르면 div 요소에 .rB를 적용하고, p요소를 선택자를 추가하여 .yB를 적용
+    $(function(){
+        $("button").on("click", function(){
+            $("div").css("background", "yellow").not(".mid").css("border-color", "red");
+        });
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>선택자 부정필터 메소드 - not()</h1>
+        <article class="data">
+            <button style="clear:both" id="btn1"> 버튼 </button>
+            <div id="first"></div>
+            <div id="second" class="mid"></div> 
+            <div id="third" class="mid"></div>
+            <div id="fourth" class="mid"></div>
+            <div id="fifth" class="mid"></div>
+            <div id="sixth"></div> 
+        </article>
+    </section>
+</body>
+</html>

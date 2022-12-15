@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 40</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; display: block; clear:both;}
+    p {width: 200px; height: 60px; margin:20px; text-align: center; background-color: violet; cursor: pointer; color: aliceblue; line-height: 60px;}
+    </style>
+    <script>
+    $(document).ready(function(){
+       var p = $("p:first");
+       $("#res1").text("Width Size : "+p.outerWidth()+", Margin Include Size : "+p.outerWidth(true));
+       $("#res2").text("Height Size : "+p.outerHeight()+", Margin Include Size : "+p.outerHeight(true));
+       //outerWidth() 이거만 쓰면 width만 나옴, outerWidth(true)까지 써줘야 마진을 포함한 크기가 나옴
+       //getter만 되고 setter는 안됨
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>엘리먼트의 마진을 포함한 크기 - outerWidth(), outerHeight()</h1>
+        <article class="data">
+            <div id="res1"></div> <div id="res2"></div>
+        </article>
+    </section>
+    <br><hr>
+</body>
+</html>

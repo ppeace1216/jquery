@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 35</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; display: block; clear:both;}
+    .border {border: 2px solid green;}
+    </style>
+    <script>
+    $(document).ready(function(){
+        $("p").click(function(){
+            $("p").wrap("<div class='border'>불금 화이팅...</div>");
+            //$("p").wrapAll("<div class='border'>불금 화이팅...</div>");
+        });
+        //$("p").wrap($(".indata1"));
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>부모 요소 추가 메소드 - wrap(), wrapAll()</h1>
+        <article class="data">
+            <h2>jQuery After Third part -> 312</h2>
+            <p>React -> 37</p>
+            <div><p>VUE.js -> 1</p></div>
+            <p>angular -> 54</p>
+            <p>polymer -> 3</p>
+        </article>
+    </section>
+    <div class="indata1">데이터1!</div>
+    <footer><h3><em>copyright pph</em></h3></footer>
+</body>
+</html>

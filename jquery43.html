@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 43</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; display: block; clear:both;}
+    img {display: block; width: 500px; height: auto;}
+    </style>
+    <script>
+    $(document).ready(function(){
+        $("img").bind("dblclick", function(event){
+            var $t = $(event.target);
+            $t.width($t.width()*1.5);
+        });
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>범용 이벤트 적용 메소드 - one()</h1>
+        <article class="data">
+            <ul>
+                <img src="cat1.jpg" id="pic1">
+            </ul>
+        </article>
+    </section>
+    <br><hr>
+</body>
+</html>

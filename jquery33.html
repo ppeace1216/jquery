@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 33</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; display: block; clear:both;}
+    </style>
+    <script>
+    $(document).ready(function(){
+        var cities = ["제주도", "오키나와", "리스본", "바르셀로나", "포르투", "발리"]
+        var cards = ["포켓몬스터", "it takes two", "마리오 파티", "동물의 숲", "젤다의 전설"]
+        $.each(cities,function(index, value){
+            //$("#cities_list").append("<li>"+value+"<li>");
+            $("<li>"+value+"<li>").appendTo($("#cities_list"));
+        })
+        $(cards).each(function(index, value){
+            //$("#cards_list").prepend("<li>"+value+"<li>");
+            $("<li>"+value+"<li>").prependTo($("#cards_list"));
+        });
+        //탐색을 해서 이동
+        $("#cities_list").append($("#data1"));
+        $("#cards_list").prepend($("#data1"));
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>자식 추가 메소드(돔 조작 메소드) - append(), appendTo(), prepend(), prependTo()</h1>
+        <article class="data">
+            <div><b>내가 살고 싶은 도시</b> <ul id="cities_list"></ul></div>
+            <div><b>내가 갖고 싶은 게임 카드</b> <ul id="cards_list"></ul></div>
+        </article>
+    </section>
+    <br><hr><br>
+    <article id="data1">데이터1!</article>
+</body>
+</html>

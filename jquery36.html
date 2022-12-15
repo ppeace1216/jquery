@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 36</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; display: block; clear:both;}
+    .bd {border: 2px solid green;}
+    </style>
+    <script>
+    // .box 요소를 클릭하면 <h1 class='bd'>Replace Text</h1>로 변경
+    $(document).ready(function(){
+        $(".box").click(function(){
+            $(this).replaceWith("<h1 class='bd'>Replace Text</h1>");
+        });
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>엘리먼트 변경 메소드 - replaceWith()</h1>
+        <article class="data">
+            <div class="box one">Youngeun's</div>
+            <div class="box two">jQuery</div>
+            <div class="box three">Mobile</div>
+            <div class="box four">Story</div>
+        </article>
+    </section>
+    <div class="indata1">데이터1!</div>
+    <footer><h3><em>copyright pph</em></h3></footer>
+</body>
+</html>

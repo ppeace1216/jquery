@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 27</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; clear:both; display: block;}
+    div {width: 60px; height: 60px; border: 1px solid black;}
+    </style>
+    <script>
+    //인덱스가 2이상 4미만인 요소는 배경색 빨강으로 적용
+    //인덱스가 5이후인 요소는 배경색 초록으로 적용
+    //slice(begin, end) : begin 포함, end 미포함 - end 값은 생략 가능
+    $(function(){
+        $("button").click(function(){
+            var div = $(".data > div");
+            div.slice(2, 4).css("background", "red");
+            div.slice(5).css("background","green");
+        });
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>선택자 범위 메소드 - slice()</h1>
+        <article class="data">
+            <div></div> <div></div> <div></div> <div></div> 
+            <div></div> <div></div> <div></div> <div></div>
+            <button class="btn"> 클릭 </button>
+        </article>
+    </section>
+</body>
+</html>

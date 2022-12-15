@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 52 - 폼 관련 이벤트 메소드</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; } 
+    img { width: 500px; height:auto; border-width:10px; border-style:solid; 
+    border-color:black; transition-duration:0.6s; }
+    </style>
+    <script>
+    $(document).ready(function(){
+        $("input").val("여기가 val()").css("color","blue");
+        $("input").focus(function(){
+            $(this).val("").css("color","black");
+        });
+        $("input").blur(function(){
+            if($(this).val()==""){
+                $(this).val("이게 blur()").css("color","red");
+            }
+        });
+        $("#sel").change(function(){
+            var hrefURl = $(this).val();
+            if($(this).val()!=""){
+                window.open(hrefURl, "window open!")
+            }
+        });
+    });    
+    </script>
+</head>
+<body>
+    <section class="comment">
+        <h1>폼 관련 이벤트 메소드 - focus(), blur()</h1>
+        <article class="data">
+            <input type="text" id="id">
+        </article>
+        <article class="data">
+            사이트 선택 : 
+            <select id="sel">
+                <option value="" selected>선택안함</option>
+                <option value="http://www.naver.com" selected>네이버</option>
+                <option value="http://www.daum.net" selected>카카오</option>
+                <option value="http://www.google.com" selected>구글</option>
+            </select>
+        </article>
+    </section><br><hr><br>
+</body>
+</html>

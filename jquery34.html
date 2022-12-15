@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 34</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; display: block; clear:both;}
+    </style>
+    <script>
+    $(document).ready(function(){
+        //$("header").after("<div class='container'>박평화 ^^ </div>");
+        $("<div class='container'>박평화 ^^ </div>").insertAfter($("header"));
+        //$("footer").before("<div class='container'>리눅스 마스터 </div>");
+        $("<div class='container'>리눅스 마스터 </div>").insertBefore($("footer"));
+        //탐색을 해서 이동
+        $("header").after($("#data1"));
+        $("footer").before($("#data1"));
+    });
+    </script>
+</head>
+<body>
+    <header><h1>내일은 시험 공부해라</h1></header>
+    <section class="container">
+        <h1>형제 추가 메소드(돔 조작 메소드) - before(), insertBefore(), after(), insertAfter()</h1>
+    </section>
+    <article id="data1">데이터1!</article>
+    <footer><h3><em>copyright pph</em></h3></footer>
+</body>
+</html>

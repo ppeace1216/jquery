@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 41</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .container { clear:both; width: 1280px; margin: 0 auto; }
+    .container:after { content:""; clear:both; display:block; } 
+    .data {clear: both;}
+    .data:after {content:""; display: block; clear:both;}
+    </style>
+    <script>
+    $(document).ready(function(){
+        //a태그에 마우스 포인터를 올리면, img 요소에 해당 이미지를 보이도록
+        //bind를 on으로 바꿔도 똑같다.
+        $("a").bind("mouseover", function(){
+            $("img").attr("src", $(this).attr("data-val")).css("display", "none");
+            $("img").delay(200).fadeIn(800);
+        });
+    });
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>범용 이벤트 적용 메소드 - bind(), on()</h1>
+        <article class="data">
+            <ul>
+                <li><a href="" data-val="cat1.jpg"> 사진1 </a></li>
+                <li><a href="" data-val="cat2.jpg"> 사진2</a></li>
+            </ul><img />
+        </article>
+    </section>
+    <br><hr>
+</body>
+</html>

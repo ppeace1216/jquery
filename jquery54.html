@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 54 - 키보드 관련 이벤트 메소드</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; } 
+    img { width: 500px; height:auto; border-width:10px; border-style:solid; 
+    border-color:black; transition-duration:0.6s; }
+    </style>
+    <script>
+    $(document).ready(function(){
+        //abs - 절대값 구하기 next는 탐색 메소드 , 다음요소로 추가할때는 after
+        $("#msgBox").keyup(function(){
+            var inLength = $(this).val().length;
+            var remain = 80 - inLength;
+            $("h2").html(remain);
+            if(remain >= 0) {
+                $("h2").css("color","blue");
+            } else {
+                $("h2").css("color","red");
+                $(this).css("color","red");
+                $(this).attr("disabled", "true");
+                $("#status").text(Math.abs(remain)+"글자를 초과하셨습니다.");
+            }
+        });
+        $("#btn1").click(function(){
+            $("#msgBox").remove();
+            $("h2").after("<textarea id='msgBox' cols='40' rows='10'></textarea>");
+            $("h2").text("80").css("color"."black");
+        });
+    });    
+    </script>
+</head>
+<body>
+    <section class="comment">
+        <h1>키보드 관련 이벤트 메소드 - keyup(), keydown(), keypress()</h1>
+        <article class="data">
+            <div>
+                남은 글자 수
+                <h2>80</h2>
+                <textarea id="msgBox" cols="40" rows="10"></textarea>
+            </div>
+            <div id="status"></div><button id="btn1">초기화</button>
+        </article>
+    </section><br><hr><br>
+</body>
+</html>
