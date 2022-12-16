@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 57</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; } 
+    .lst, .btnFrame {margin: 30px auto; width: 600px; clear: both;}
+    .lst li {float:left; margin-left:10px; display:none;}
+    .txt {clear: both; text-align: center;}
+    h1 {text-align: center; margin-top: 1.8rem;}
+    button {display: block; float: left; margin: 24px; padding: 18px; background-color: darkorchid; color: aliceblue; outline: 0; border: 0; border-radius: 12px; cursor: pointer;}
+    img {display: block; width: 200px; height: 200px; overflow: hidden;}
+    </style>
+    <script>
+    //duration : fast, normal(생략), slow, ms단위 숫자
+    //stop(true, true) -> 현재 진행하는 것, 이후에 진행할 것
+    $(document).ready(function(){
+        $(".lst li").each(function(index){
+            $(this).delay(index*500).slideDown(600);
+        });
+        $("#btn1").click(function(){
+            $(".lst li").slideDown(2000, function(){
+                $(".txt").text("리스트 박스가 보여집니다.")
+            });
+        });
+        $("#btn2").click(function(){
+            $(".lst li").slideUp(2000, function(){
+                $(".txt").text("리스트 박스가 사라집니다.")
+            });
+        });
+        $("#btn3").click(function(){
+            $(".lst li").slideToggle(slow, function(){
+                var status = $(".lst li").css("display");   //css가 이렇게 된건 getter
+                if(status=="none"){
+                    $(".txt").text("리스트 박스가 사라집니다.");
+                } else {
+                    $(".txt").text("리스트 박스가 보여집니다.");
+                }
+            });
+        });
+    });    
+    </script>
+</head>
+<body>
+    <section class="comment">
+        <h1>보이기/숨기기 효과 메소드 - show(), hide(), toggle()</h1>
+        <article class="data">
+            <div class="btnFrame">
+                <button id="btn1">보이기!</button>
+                <button id="btn2">숨기기!</button>
+                <button id="btn3">토글!</button>
+            </div>
+            <ul class="lst">
+                <li><img src="winter1.jpg" alt=""></li>
+                <li><img src="winter2.jpg" alt=""></li>
+                <li><img src="winter3.jpg" alt=""></li>
+            </ul>
+            <div class="txt">버튼을 누르면 효과가 실행!</div>
+        </article>
+    </section><br><hr><br>
+</body>
+</html>
